@@ -14,7 +14,17 @@ def winner(player, computer):
 
 
 choices = ['rock', 'paper', 'scissors']  # list of available choices to play the game
-user_choice = input()  # get user's choice
-computer_choice = random.choice(choices)  # pseudo-random selection of available moves
-winner = winner(user_choice, computer_choice)  # find a winner
-print(winner)  # print winner
+while True:
+    options = ['rock', 'paper', 'scissors', '!exit']
+    user_choice = input()  # get user's choice
+    if user_choice not in options:
+        print("Invalid input")
+        continue
+    if user_choice == options[3]:
+        print("Bye!")
+        break
+    if user_choice in options[:3]:
+        computer_choice = random.choice(choices)  # pseudo-random selection of available moves
+        who_wins = winner(user_choice, computer_choice)  # find a winner
+        print(who_wins)  # print winner
+        continue

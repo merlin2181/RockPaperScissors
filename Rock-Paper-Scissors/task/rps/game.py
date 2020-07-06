@@ -19,6 +19,7 @@ def get_points(user):
     # check to see if the user's name is saved in the ratings.txt file.
     file = open('rating.txt')
     names = file.readlines()
+    file.close()
     names = [names[i].split() for i in range(len(names))]
     for player in names:
         if user in player:
